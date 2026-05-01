@@ -1,146 +1,233 @@
 <!DOCTYPE html>
-<html>
+<html >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <title>Atlas Bank - E-Banking Pro</title>
     <style>
+        :root {
+            --bleu-marin: #001a33;
+            --violet: #6a0dad;
+            --noir: #121212;
+            --blanc: #ffffff;
+            --gris-bg: #f0f2f5;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--gris-bg);
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: var(--bleu-marin);
+            color: white;
+            padding: 0 5%;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--violet);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 1px; }
+        .logo span { color: var(--violet); }
+
+        .nav-bar ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-bar a:hover { color: var(--violet); }
+
+        .btn-login {
+            background-color: var(--violet);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-login:hover { transform: scale(1.05); background-color: #4a0880; }
+        .btn-login a { color: white; text-decoration: none; font-weight: bold; }
+
         .ebanking-wrapper {
             display: grid;
             grid-template-columns: 250px 1fr;
-            min-height: 100vh;
-            background-color: #f0f2f5;
+            margin-top: 73px;
+            min-height: calc(100vh - 73px);
         }
-    
-        
+
         .sidebar {
-            background-color: blue;
+            background-color: var(--noir);
             color: white;
-            padding: 20px;
+            padding: 30px 20px;
+            position: fixed;
+            width: 210px;
+            top: 73px;
+            bottom: 0;
+            border-right: 1px solid rgba(255,255,255,0.05);
         }
-    
-        .sidebar h2 { font-size: 1.2rem; color: blueviolet; margin-bottom: 30px; }
-    
+
+        .sidebar h2 { font-size: 1.1rem; color: var(--violet); margin-bottom: 30px; letter-spacing: 1px; }
+
         .menu-item {
-            padding: 15px;
-            margin-bottom: 5px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
             border-radius: 8px;
             cursor: pointer;
             transition: 0.3s;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-size: 0.9rem;
         }
-    
+
         .menu-item:hover, .menu-item.active {
-            background-color: blueviolet;
+            background-color: var(--violet);
+            color: white;
         }
-    
-        
+
         .dashboard-content {
-            padding: 30px;
+            grid-column-start: 2;
+            padding: 40px;
+            background-color: var(--gris-bg);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--noir);
         }
-    
+
+        .dashboard-content:hover {
+            background-color: var(--bleu-marin);
+            color: var(--blanc);
+        }
+
+        .dashboard-content:hover h1, 
+        .dashboard-content:hover span,
+        .dashboard-content:hover p {
+            color: var(--blanc) !important;
+        }
+
         .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
-    
+
         .account-summary {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
         }
-    
+
         .balance-card {
-            background: linear-gradient(45deg, blue, black);
+            background: linear-gradient(135deg, var(--bleu-marin) 0%, var(--noir) 100%);
             color: white;
-            padding: 25px;
+            padding: 30px;
             border-radius: 15px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: 0.4s;
+            border: 1px solid rgba(255,255,255,0.1);
         }
-    
+
+        .dashboard-content:hover .balance-card {
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            border-color: var(--violet);
+        }
+
         .balance-card::after {
             content: '';
             position: absolute;
-            right: -20px;
-            bottom: -20px;
-            width: 100px;
-            height: 100px;
-            background: blueviolet;
-            opacity: 0.2;
+            right: -20px; bottom: -20px;
+            width: 120px; height: 120px;
+            background: var(--violet);
+            opacity: 0.15;
             border-radius: 50%;
         }
-    
+
         .balance-amount {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: bold;
-            margin: 10px 0;
+            margin: 15px 0;
         }
-    
-       
-        .quick-actions {
-            margin-top: 30px;
-            display: flex;
-            gap: 15px;
-        }
-    
-        .action-btn {
-            background: white;
-            border: 1px solid rgb(7, 214, 241);
-            color: blue;
-            padding: 15px 25px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: bold;
-            align-items: center;
-            transition: 0.3s;
-        }
-    
-        .action-btn:hover {
-            background: blueviolet;
-            color: white;
+
+        @media (max-width: 768px) {
+            .ebanking-wrapper { grid-template-columns: 1fr; }
+            .sidebar { display: none; }
+            .dashboard-content { grid-column-start: 1; padding: 20px; }
+            .nav-bar { display: none; }
         }
     </style>
-    
-    <div class="ebanking-wrapper action-btn">
+</head>
+<body>
+
+    <header>
+        <a href="acceil.html" style="color: white;"><div class="logo">ATLAS<span>BANK</span></div></a>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="offres.html">Nos offres</a></li>
+                <li><a href="transaction.html">Transactions</a></li>
+                <li><a href="user.html">Mon Profil</a></li>
+                <li><a href="E-banking.html" style="color: var(--violet); font-weight: bold;">E-Banking</a></li>
+            </ul>
+        </nav>
+        <button class="btn-login"><a href="contact.html">Déconnexion</a></button>
+    </header>
+
+    <div class="ebanking-wrapper">
         <aside class="sidebar">
-            <h2 style="color: #f0f2f5;">ATLAS ONLINE</h2>
+            <h2>ATLAS ONLINE</h2>
             <div class="menu-item active">🏠 Tableau de bord</div>
             <div class="menu-item">💸 Mes Virements</div>
             <div class="menu-item">💳 Mes Cartes</div>
             <div class="menu-item">📄 Mes Relevés</div>
             <div class="menu-item">⚙️ Paramètres</div>
-            <div class="menu-item" style="margin-top: auto; color: #ff4d4d;">🔒 Déconnexion</div>
+            <div class="menu-item" style="margin-top: 60px; color: #ff4d4d; border: 1px solid #ff4d4d55;">🔒 Quitter</div>
         </aside>
     
         <main class="dashboard-content">
             <div class="top-bar">
-                <h1>Bonjour, <strong>Ahmed El Amrani</strong></h1>
-                <span style="color: #000000;">Dernière connexion: Aujourd'hui à 10:45</span>
+                <h1 style="margin:0;">Bonjour, <strong>Ahmed</strong></h1>
+                <span style="background: rgba(0,0,0,0.05); padding: 7px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">
+                    Accès Sécurisé • Casablanca
+                </span>
             </div>
     
             <section class="account-summary">
                 <div class="balance-card">
-                    <small>Compte Courant Particulier</small>
+                    <small style="opacity: 0.8;">Compte Courant Particulier</small>
                     <div class="balance-amount">84.250,00 DH</div>
                     <small>RIB: 230 120 4567890123 45</small>
                 </div>
     
-                <div class="balance-card" style="background: black;">
-                    <small>Compte Épargne (Carnet)</small>
+                <div class="balance-card" style="background: var(--noir);">
+                    <small style="opacity: 0.8;">Compte Épargne Dirhams</small>
                     <div class="balance-amount">15.000,00 DH</div>
-                    <small>Taux de rémunération: 2.5% p.a</small>
+                    <small>Intérêts annuels: 2.5%</small>
                 </div>
             </section>
-    
-           
         </main>
     </div>
+
 </body>
 </html>
