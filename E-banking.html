@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .ebanking-wrapper {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+        }
+    
+        
+        .sidebar {
+            background-color: blue;
+            color: white;
+            padding: 20px;
+        }
+    
+        .sidebar h2 { font-size: 1.2rem; color: blueviolet; margin-bottom: 30px; }
+    
+        .menu-item {
+            padding: 15px;
+            margin-bottom: 5px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    
+        .menu-item:hover, .menu-item.active {
+            background-color: blueviolet;
+        }
+    
+        
+        .dashboard-content {
+            padding: 30px;
+        }
+    
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+    
+        .account-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+    
+        .balance-card {
+            background: linear-gradient(45deg, blue, black);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+    
+        .balance-card::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            width: 100px;
+            height: 100px;
+            background: blueviolet;
+            opacity: 0.2;
+            border-radius: 50%;
+        }
+    
+        .balance-amount {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    
+       
+        .quick-actions {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+    
+        .action-btn {
+            background: white;
+            border: 1px solid rgb(7, 214, 241);
+            color: blue;
+            padding: 15px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            align-items: center;
+            transition: 0.3s;
+        }
+    
+        .action-btn:hover {
+            background: blueviolet;
+            color: white;
+        }
+    </style>
+    
+    <div class="ebanking-wrapper action-btn">
+        <aside class="sidebar">
+            <h2 style="color: #f0f2f5;">ATLAS ONLINE</h2>
+            <div class="menu-item active">🏠 Tableau de bord</div>
+            <div class="menu-item">💸 Mes Virements</div>
+            <div class="menu-item">💳 Mes Cartes</div>
+            <div class="menu-item">📄 Mes Relevés</div>
+            <div class="menu-item">⚙️ Paramètres</div>
+            <div class="menu-item" style="margin-top: auto; color: #ff4d4d;">🔒 Déconnexion</div>
+        </aside>
+    
+        <main class="dashboard-content">
+            <div class="top-bar">
+                <h1>Bonjour, <strong>Ahmed El Amrani</strong></h1>
+                <span style="color: #000000;">Dernière connexion: Aujourd'hui à 10:45</span>
+            </div>
+    
+            <section class="account-summary">
+                <div class="balance-card">
+                    <small>Compte Courant Particulier</small>
+                    <div class="balance-amount">84.250,00 DH</div>
+                    <small>RIB: 230 120 4567890123 45</small>
+                </div>
+    
+                <div class="balance-card" style="background: black;">
+                    <small>Compte Épargne (Carnet)</small>
+                    <div class="balance-amount">15.000,00 DH</div>
+                    <small>Taux de rémunération: 2.5% p.a</small>
+                </div>
+            </section>
+    
+           
+        </main>
+    </div>
+</body>
+</html>

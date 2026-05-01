@@ -1,0 +1,126 @@
+:root {
+    --bleu-marin: #001a33;
+    --violet: #6a0dad;
+    --noir: #121212;
+    --blanc: #ffffff;
+    --gris-clair: #f4f4f9;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: var(--gris-clair);
+    color: var(--noir);
+}
+
+
+header {
+    background-color: var(--bleu-marin);
+    color: var(--blanc);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--violet);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--blanc);
+}
+
+.logo span {
+    color: var(--violet);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--blanc);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--violet);
+}
+
+.btn-login {
+    background-color: var(--violet);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+.hero {
+    background: linear-gradient(135deg, var(--bleu-marin) 0%, var(--noir) 100%);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 50px 5%;
+    margin-top: -50px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+    border-top: 4px solid var(--violet);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+
+footer {
+    background-color: var(--noir);
+    color: #ccc;
+    padding: 40px 5%;
+    text-align: center;
+    border-top: 2px solid var(--bleu-marin);
+}
+
+.security-badge {
+    background: rgba(106, 13, 173, 0.1);
+    color: var(--violet);
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-top: 10px;
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+
+<style>
+    .auth-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+        padding: 40px 5%;
+        background: linear-gradient(135deg, var(--noir) 0%, var(--bleu-marin) 100%);
+    }
+
+    .auth-card {
+        background: white;
+        width: 100%;
+        max-width: 900px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    /* Section Login */
+    .auth-section {
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .auth-section.login-side {
+        background-color: var(--blanc);
+    }
+
+    /* Section Sign Up */
+    .auth-section.signup-side {
+        background-color: var(--bleu-marin);
+        color: white;
+        border-left: 2px solid var(--violet);
+    }
+
+    .auth-section h2 {
+        margin-bottom: 25px;
+        font-size: 1.5rem;
+        color: inherit;
+    }
+
+    .login-side h2 { color: var(--bleu-marin); }
+
+    .input-box {
+        margin-bottom: 20px;
+    }
+
+    .input-box label {
+        display: block;
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+
+    .input-box input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        background: #f9f9f9;
+        outline: none;
+    }
+
+    .signup-side input {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+
+    .auth-btn {
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 10px;
+    }
+
+    .btn-login-main {
+        background: var(--bleu-marin);
+        color: white;
+    }
+
+    .btn-login-main:hover { background: var(--violet); }
+
+    .btn-signup-main {
+        background: var(--violet);
+        color: white;
+    }
+
+    .btn-signup-main:hover { opacity: 0.9; }
+
+    .forgot-pass {
+        font-size: 0.8rem;
+        color: var(--violet);
+        text-decoration: none;
+        margin-top: 10px;
+        text-align: right;
+    }
+
+    .info-text {
+        font-size: 0.8rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+        .auth-card { grid-template-columns: 1fr; }
+        .signup-side { border-left: none; border-top: 2px solid var(--violet); }
+    }
+</style>
+
+<div class="auth-container">
+    <div class="auth-card">
+        
+        <div class="auth-section login-side">
+            <h2>Accès Atlas Entreprise</h2>
+            <form>
+                <div class="input-box">
+                    <label>Identifiant Client</label>
+                    <input type="text" placeholder="Entrez votre ID">
+                </div>
+                <div class="input-box">
+                    <label>Code Secret</label>
+                    <input type="password" placeholder="••••••••">
+                </div>
+                <button type="submit" class="auth-btn btn-login-main">Se Connecter</button>
+                <a href="#" class="forgot-pass">Identifiant ou mot de passe oublié ?</a>
+            </form>
+        </div>
+
+        <div class="auth-section signup-side">
+            <h2>Nouvelle Entreprise ?</h2>
+            <p class="info-text">Rejoignez la plateforme Atlas Business pour gérer vos flux financiers, salaires et paiements internationaux en un clic.</p>
+            <form>
+                <div class="input-box">
+                    <label>ICE (Identifiant Commun de l'Entreprise)</label>
+                    <input type="text" placeholder="15 chiffres">
+                </div>
+                <div class="input-box">
+                    <label>Email Professionnel</label>
+                    <input type="email" placeholder="contact@entreprise.ma">
+                </div>
+                <button type="submit" class="auth-btn btn-signup-main">Demander l'Ouverture</button>
+            </form>
+            <p style="font-size: 0.7rem; margin-top: 20px; color: #aaa;">
+                * La validation de votre compte nécessite une étude de dossier par votre conseiller sous 24h.
+            </p>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

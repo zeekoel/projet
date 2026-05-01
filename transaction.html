@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+    .transactions-section {
+        background: white;
+        margin: 30px 5%;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .trans-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        border-bottom: 2px solid var(--gris-clair);
+        padding-bottom: 15px;
+    }
+
+    .trans-header h3 {
+        color: var(--bleu-marin);
+        margin: 0;
+    }
+
+
+    .trans-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+    }
+
+    .trans-table th {
+        background-color: var(--bleu-marin);
+        color: white;
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .trans-table td {
+        padding: 15px 12px;
+        border-bottom: 1px solid #eee;
+        font-size: 0.95rem;
+    }
+
+    
+    .amount-in {
+        color: #27ae60; 
+        font-weight: bold;
+    }
+
+    .amount-out {
+        color: #e74c3c; 
+        font-weight: bold;
+    }
+
+    .status-badge {
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+
+    .status-completed { background: #d4edda; color: #155724; }
+    .status-pending { background: #fff3cd; color: #856404; }
+
+    
+    .filter-bar {
+        margin-bottom: 20px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .filter-bar input, .filter-bar select {
+        padding: 8px;
+        border: 1px solid var(--violet);
+        border-radius: 5px;
+    }
+    </style>
+
+<section class="transactions-section">
+    <div class="trans-header">
+        <h3>Dernières Transactions Business</h3>
+        <button class="btn-login" style="font-size: 0.8rem; background: var(--noir);">Télécharger Relevé (PDF)</button>
+    </div>
+
+    <div class="filter-bar">
+        <input type="text" placeholder="Rechercher une opération...">
+        <select>
+            <option>Tous les comptes</option>
+            <option>Compte Courant Pro</option>
+            <option>Compte Devises</option>
+        </select>
+    </div>
+
+    <table class="trans-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Libellé de l'opération</th>
+                <th>Catégorie</th>
+                <th>Statut</th>
+                <th>Montant</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>01 Mai 2026</td>
+                <td>Virement reçu - Client AL AMAL SARL</td>
+                <td>Encaissement</td>
+                <td><span class="status-badge status-completed">Validé</span></td>
+                <td class="amount-in">+ 45.000,00 DH</td>
+            </tr>
+            <tr>
+                <td>30 Avr 2026</td>
+                <td>Paiement TPE - Station Afriquia</td>
+                <td>Carburant</td>
+                <td><span class="status-badge status-completed">Validé</span></td>
+                <td class="amount-out">- 650,00 DH</td>
+            </tr>
+            <tr>
+                <td>28 Avr 2026</td>
+                <td>Prélèvement CNSS</td>
+                <td>Charges Sociales</td>
+                <td><span class="status-badge status-pending">En cours</span></td>
+                <td class="amount-out">- 12.400,00 DH</td>
+            </tr>
+            <tr>
+                <td>25 Avr 2026</td>
+                <td>Règlement Fournisseur - Global IT</td>
+                <td>Matériel</td>
+                <td><span class="status-badge status-completed">Validé</span></td>
+                <td class="amount-out">- 8.900,00 DH</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>
